@@ -1,0 +1,11 @@
+- name: Show facts
+  hosts: iosxr
+  gather_facts: false
+  tasks:
+    - name: Gather facts
+      cisco.iosxr.iosxr_facts:
+        gather_subset: all
+      register: gather_facts
+    - name: Print facts
+      ansible.builtin.debug:
+        msg: '{{ gather_facts }}'

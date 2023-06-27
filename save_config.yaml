@@ -1,0 +1,9 @@
+---
+
+- name: Save config to backup directory
+  hosts: iosxr
+  gather_facts: false
+  tasks:
+    - name: Save config to backup/hostname_config.datetime
+      cisco.iosxr.iosxr_config:
+        backup: true

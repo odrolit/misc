@@ -1,0 +1,13 @@
+---
+
+- name: Gather bgp global facts
+  hosts: iosxr
+  gather_facts: false
+  tasks:
+    - name: Gather facts
+      cisco.iosxr.iosxr_bgp_global:
+        state: gathered
+      register: bgp_gathered
+    - name: Print facts
+      ansible.builtin.debug:
+        msg: '{{ bgp_gathered }}'
